@@ -12,3 +12,10 @@ spring:
 
 server:
   port: 8090
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: ERROR
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss} [%-5level] %c{1}: %msg%n"
