@@ -1,6 +1,6 @@
 package com.fiap.carcheap.enums;
 
-public enum UserPerfils {
+public enum UserPerfis {
     MASTER,
     ADMINISTRATIVO,
     VENDEDOR
