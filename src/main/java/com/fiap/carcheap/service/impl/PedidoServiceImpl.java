@@ -1,17 +1,16 @@
 package com.fiap.carcheap.service.impl;
 
-import com.fiap.carcheap.controller.response.PedidoResponse;
 import com.fiap.carcheap.controller.mapper.PedidoResponseMapper;
+import com.fiap.carcheap.controller.request.PedidoRequest;
+import com.fiap.carcheap.controller.response.PedidoResponse;
 import com.fiap.carcheap.exception.PedidoNotFoundException;
 import com.fiap.carcheap.repository.PedidoRepository;
-import com.fiap.carcheap.repository.entity.Pedido;
-import com.fiap.carcheap.repository.entity.enums.TipoPagamentoEnum;
+import com.fiap.carcheap.repository.mapper.PedidoMapper;
 import com.fiap.carcheap.service.PedidoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Slf4j
@@ -21,6 +20,8 @@ public class PedidoServiceImpl implements PedidoService {
     private PedidoRepository repository;
     @Autowired
     private PedidoResponseMapper pedidoResponseMapper;
+    @Autowired
+    private PedidoMapper pedidoMapper;
 
     @Override
     public List<PedidoResponse> buscaPedidos() {
@@ -38,13 +39,9 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public void criaPedido() {
-        final var pedido = new Pedido();
-        pedido.setTipoPagamento(TipoPagamentoEnum.CREDITO);
-        pedido.setVendedor("Vendedor maluco");
-        pedido.setCarro("Corolla");
-        pedido.setValorComissao(new BigDecimal("10000"));
-        pedido.setCliente("Vini");
+    public PedidoResponse criaPedido(final PedidoRequest request) {
+        final var pedido = pedidoMapper.toPedido(request);
         repository.save(pedido);
+        return pedidoResponseMapper.toPedidoResponse(pedido);
     }
 }
