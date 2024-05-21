@@ -8,6 +8,6 @@ import lombok.Setter;
 public class PedidoRequest {
     private String tipoPagamento;
     private String vendedor;
-    private String carro;
+    private Long carroId;
     private String cliente;
 }

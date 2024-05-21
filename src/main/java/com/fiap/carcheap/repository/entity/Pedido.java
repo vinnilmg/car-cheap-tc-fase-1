@@ -16,7 +16,9 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String vendedor; // TODO: Precisa da entidade de usuarios
-    private String carro; // TODO: Precisa da entidade de carros
+
+    @OneToOne
+    private Carro carro;
 
     //@ManyToOne(fetch = FetchType.LAZY)
     private String cliente;

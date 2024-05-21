@@ -4,9 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,22 +26,22 @@ public class Carro {
     private String chassi;
     @NotBlank
     private String renavan;
-    @NotBlank
+    @NotNull
     private Long anofab;
-    @NotBlank
+    @NotNull
     private Long anomodelo;
-    @NotBlank
+    @NotNull
     private Long potencia;
     @NotBlank
     private String cor;
-    @NotBlank
+    @NotNull
     private Long nr_portas;
     @NotBlank
     private String equipamentos;
     private String tp_carroceria;
-    @NotBlank
+    @NotNull
     private Long vr_original;
-    @NotBlank
+    @NotNull
     private Long vr_venda;
     private String origem;
     private String status;

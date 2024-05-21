@@ -3,9 +3,11 @@ package com.fiap.carcheap.service.impl;
 import com.fiap.carcheap.controller.mapper.PedidoResponseMapper;
 import com.fiap.carcheap.controller.request.PedidoRequest;
 import com.fiap.carcheap.controller.response.PedidoResponse;
+import com.fiap.carcheap.exception.CarroNotFoundException;
 import com.fiap.carcheap.exception.PedidoNotFoundException;
 import com.fiap.carcheap.repository.PedidoRepository;
 import com.fiap.carcheap.repository.mapper.PedidoMapper;
+import com.fiap.carcheap.service.CarroService;
 import com.fiap.carcheap.service.PedidoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class PedidoServiceImpl implements PedidoService {
     private PedidoResponseMapper pedidoResponseMapper;
     @Autowired
     private PedidoMapper pedidoMapper;
+    @Autowired
+    private CarroService carroService;
 
     @Override
     public List<PedidoResponse> buscaPedidos() {
@@ -40,7 +44,12 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public PedidoResponse criaPedido(final PedidoRequest request) {
-        final var pedido = pedidoMapper.toPedido(request);
+        final var carro = carroService.findById(request.getCarroId());
+        if (carro.isEmpty()) {
+            throw new CarroNotFoundException();
+        }
+
+        final var pedido = pedidoMapper.toPedido(request, carro.get());
         repository.save(pedido);
         return pedidoResponseMapper.toPedidoResponse(pedido);
     }
