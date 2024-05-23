@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class PedidoRequest {
     private String tipoPagamento;
-    private String vendedor;
+    private Long vendedorId;
     private Long carroId;
     //private Long clienteId;
 }

@@ -2,6 +2,8 @@ package com.fiap.carcheap.controller;
 
 import com.fiap.carcheap.controller.request.PedidoRequest;
 import com.fiap.carcheap.controller.response.PedidoResponse;
+import com.fiap.carcheap.enums.UserPerfis;
+import com.fiap.carcheap.exception.PerfilInvalidoException;
 import com.fiap.carcheap.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ public class PedidoController {
     public ResponseEntity<List<PedidoResponse>> buscaPedidos(
             @RequestHeader final String perfil
     ) {
+        if (!UserPerfis.isVendedor(perfil)) throw new PerfilInvalidoException();
         return ResponseEntity.ok(service.buscaPedidos());
     }
 
@@ -28,6 +31,7 @@ public class PedidoController {
             @RequestHeader final String perfil,
             @PathVariable final Long id
     ) {
+        if (!UserPerfis.isVendedor(perfil)) throw new PerfilInvalidoException();
         return ResponseEntity.ok(service.buscaPedido(id));
     }
 
@@ -36,6 +40,7 @@ public class PedidoController {
             @RequestHeader final String perfil,
             @RequestBody final PedidoRequest request
     ) {
+        if (!UserPerfis.isVendedor(perfil)) throw new PerfilInvalidoException();
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.criaPedido(request));
     }

@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-
 @Setter
 @Getter
 @Entity
@@ -28,6 +26,4 @@ public class User {
     private String sobrenome;
     @Enumerated(EnumType.STRING)
     private UserPerfis perfil;
-    @OneToMany(mappedBy = TROCAR, cascade = CascadeType.ALL)
-    private ArrayList<Pedido> pedidos;
 }

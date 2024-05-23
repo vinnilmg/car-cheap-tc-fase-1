@@ -16,12 +16,14 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String vendedor; // TODO: Precisa da entidade de usuarios
+
+    @ManyToOne
+    private User vendedor;
 
     @OneToOne
     private Carro carro;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Cliente cliente;
 
     private BigDecimal valorComissao;
