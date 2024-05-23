@@ -1,5 +1,6 @@
 package com.fiap.carcheap.repository.entity;
 
+import com.fiap.carcheap.repository.entity.enums.StatusPedidoEnum;
 import com.fiap.carcheap.repository.entity.enums.TipoPagamentoEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,11 +21,14 @@ public class Pedido {
     @OneToOne
     private Carro carro;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    private String cliente;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Cliente cliente;
 
     private BigDecimal valorComissao;
 
     @Enumerated(EnumType.STRING)
     private TipoPagamentoEnum tipoPagamento;
+
+    @Enumerated(EnumType.STRING)
+    private StatusPedidoEnum statusPedido;
 }

@@ -9,5 +9,5 @@ public class PedidoRequest {
     private String tipoPagamento;
     private String vendedor;
     private Long carroId;
-    private String cliente;
+    //private Long clienteId;
 }

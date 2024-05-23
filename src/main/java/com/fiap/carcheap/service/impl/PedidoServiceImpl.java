@@ -49,6 +49,8 @@ public class PedidoServiceImpl implements PedidoService {
             throw new CarroNotFoundException();
         }
 
+        // TODO: Precisa verificar se o cliente existe (aguardando metodos serem criados)
+
         final var pedido = pedidoMapper.toPedido(request, carro.get());
         repository.save(pedido);
         return pedidoResponseMapper.toPedidoResponse(pedido);

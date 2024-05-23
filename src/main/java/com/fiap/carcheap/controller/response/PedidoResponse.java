@@ -1,6 +1,7 @@
 package com.fiap.carcheap.controller.response;
 
 import com.fiap.carcheap.repository.entity.Carro;
+import com.fiap.carcheap.repository.entity.enums.StatusPedidoEnum;
 import com.fiap.carcheap.repository.entity.enums.TipoPagamentoEnum;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,8 @@ public class PedidoResponse {
     private Long id;
     private String vendedor;
     private Carro carro;
-    private String cliente;
+    //private String cliente;
     private BigDecimal valorComissao;
     private TipoPagamentoEnum tipoPagamento;
+    private StatusPedidoEnum statusPedido;
 }
