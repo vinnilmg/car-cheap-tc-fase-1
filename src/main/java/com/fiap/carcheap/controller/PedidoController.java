@@ -44,4 +44,11 @@ public class PedidoController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.criaPedido(request));
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<PedidoResponse> pagaPedidoVenda(
+            @PathVariable final Long id
+    ) {
+        return ResponseEntity.ok(service.pagaPedido(id));
+    }
 }
