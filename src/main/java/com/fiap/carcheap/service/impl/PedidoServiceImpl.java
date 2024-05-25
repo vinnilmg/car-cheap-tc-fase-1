@@ -9,6 +9,7 @@ import com.fiap.carcheap.exception.UserNotFoundException;
 import com.fiap.carcheap.repository.PedidoRepository;
 import com.fiap.carcheap.repository.UserRepository;
 import com.fiap.carcheap.repository.entity.enums.ComissaoEnum;
+import com.fiap.carcheap.repository.entity.enums.StatusPedidoEnum;
 import com.fiap.carcheap.repository.mapper.PedidoMapper;
 import com.fiap.carcheap.service.CarroService;
 import com.fiap.carcheap.service.PedidoService;
@@ -70,4 +71,13 @@ public class PedidoServiceImpl implements PedidoService {
         repository.save(pedido);
         return pedidoResponseMapper.toPedidoResponse(pedido);
     }
+
+
+    @Override
+    public PedidoResponse pagaPedido(final Long id) {
+        PedidoResponse pedido = this.buscaPedido(id);
+        pedido.setStatusPedido(StatusPedidoEnum.PAGO);
+        return pedido;
+    }
+
 }
