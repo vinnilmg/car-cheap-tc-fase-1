@@ -28,8 +28,11 @@ public class CarroService {
     }
 
     public Optional<Carro> findById(String id) {
-        var carro = repo.findById(UUID.fromString(id));
-        return carro;
+        var carroOp = repo.findById(UUID.fromString(id));
+
+        if (carroOp.isEmpty()) throw new CarroNotFoundException();
+
+        return carroOp;
     }
 
     public Carro save(Carro carro) {
