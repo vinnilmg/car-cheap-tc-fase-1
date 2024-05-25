@@ -10,6 +10,6 @@ import java.util.UUID;
 public class PedidoRequest {
     private String tipoPagamento;
     private String vendedorId;
-    private Long carroId;
-    private Long clienteId;
+    private String carroId;
+
 }

@@ -63,7 +63,7 @@ public class PedidoServiceImpl implements PedidoService {
             throw new CarroNotFoundException();
         }
 
-        final var carroComVendaIniciada = repository.existsByCarroId(request.getCarroId());
+        final var carroComVendaIniciada = repository.existsByCarroId(UUID.fromString(request.getCarroId()));
         if (carroComVendaIniciada) {
             throw new CarroJaEstaEmProcessoDeVendaException();
         }
