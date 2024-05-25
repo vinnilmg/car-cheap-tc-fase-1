@@ -2,7 +2,7 @@ package com.fiap.carcheap.controller;
 
 import com.fiap.carcheap.controller.request.PedidoRequest;
 import com.fiap.carcheap.controller.response.PedidoResponse;
-import com.fiap.carcheap.enums.UserPerfis;
+import com.fiap.carcheap.repository.entity.enums.UserPerfis;
 import com.fiap.carcheap.exception.PerfilInvalidoException;
 import com.fiap.carcheap.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
