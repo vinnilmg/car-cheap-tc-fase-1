@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ClienteService {
@@ -31,13 +32,13 @@ public class ClienteService {
                 .toList();
     }
 
-    public ClienteResponse obterPorId(Long id) {
-        return getById(id)
+    public ClienteResponse obterPorId(String id) {
+        return getById(UUID.fromString(id))
                 .map(clienteResponseMapper::toClienteResponse)
                 .orElseThrow(ClienteNotFoundException::new);
     }
 
-    public Optional<Cliente> getById(Long id) {
+    public Optional<Cliente> getById(UUID id) {
         return clienteRepository.findById(id);
     }
 
@@ -47,11 +48,11 @@ public class ClienteService {
         return modelMapper.map(cliente, ClienteDto.class);
     }
 
-    public void deleltarCliente(Long id) {
-        clienteRepository.deleteById(id);
+    public void deleltarCliente(String id) {
+        clienteRepository.deleteById(UUID.fromString(id));
     }
 
-    public ClienteDto atualizarCliente(Long id, ClienteDto clienteDto) {
+    public ClienteDto atualizarCliente(UUID id, ClienteDto clienteDto) {
         Cliente cliente = modelMapper.map(clienteDto, Cliente.class);
         cliente.setId(id);
         cliente = clienteRepository.save(cliente);

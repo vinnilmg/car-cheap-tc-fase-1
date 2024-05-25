@@ -10,17 +10,12 @@ insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor,
 ('9b6d13a2-0838-42bb-b943-4e5a7ed0614d', 'ggxa25', 'xxxxxxxx4', 'teste', 2022, 2022, 150, 'branco', 4, 'ar, direção, vidro', 'suv', 160000, 160000, 'teste', 'teste', 'PREMIUM');
 
 
-INSERT INTO clientes (id, nome, cpf, email, rg) VALUES
-(1, 'Ana Silva', '12345678901', 'ana.silva@example.com', '123456789'),
-(2, 'Bruno Oliveira', '23456789012', 'bruno.oliveira@example.com', '234567890'),
-(3, 'Carlos Souza', '34567890123', 'carlos.souza@example.com', '345678901'),
-(4, 'Daniela Pereira', '45678901234', 'daniela.pereira@example.com', '456789012'),
-(5, 'Eduardo Santos', '56789012345', 'eduardo.santos@example.com', '567890123'),
-(6, 'Fernanda Lima', '67890123456', 'fernanda.lima@example.com', '678901234'),
-(7, 'Gabriel Almeida', '78901234567', 'gabriel.almeida@example.com', '789012345'),
-(8, 'Helena Martins', '89012345678', 'helena.martins@example.com', '890123456'),
-(9, 'Igor Costa', '90123456789', 'igor.costa@example.com', '901234567'),
-(10, 'Juliana Rodrigues', '01234567890', 'juliana.rodrigues@example.com', '012345678');
+INSERT INTO pessoa (id, nome, cpf, email, rg) VALUES
+('90cfa24e-4be0-44dc-8855-76bbcf4be910', 'João da Silva', '12345678900', 'joao.silva@example.com', 'MG12345678'),
+('1f4a7c5e-b2b7-41d5-b89e-99401cb574b5', 'Maria Oliveira', '98765432100', 'maria.oliveira@example.com', 'SP87654321'),
+('a1d1b8c4-8b73-4aaf-8349-d2d9a5a03e9d', 'Carlos Pereira', '45678912300', 'carlos.pereira@example.com', 'RJ45678912'),
+('ed1b05ec-36b4-4b14-a635-3b526e5e6c3b', 'Ana Costa', '78912345600', 'ana.costa@example.com', 'RS78912345'),
+('5a574f7d-f4b7-4a6b-9b0b-8673e4df8e6f', 'Lucas Souza', '32165498700', 'lucas.souza@example.com', 'PR32165498');
 
 INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES (1,'user1','pass1','JALINDO','SANTOS','MASTER');
 INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES (2,'user2','pass2','ROMILDO','SILVIO','VENDEDOR');
