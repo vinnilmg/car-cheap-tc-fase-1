@@ -4,16 +4,19 @@ import com.fiap.carcheap.controller.mapper.UserResponseMapper;
 import com.fiap.carcheap.controller.request.UserRequest;
 import com.fiap.carcheap.controller.response.UserResponse;
 import com.fiap.carcheap.exception.UserNotFoundException;
+import com.fiap.carcheap.exception.UsernameAlreadyExistsException;
 import com.fiap.carcheap.repository.UserRepository;
 import com.fiap.carcheap.repository.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class UserService {
 
+    Logger logger = Logger.getLogger(UserService.class.getName());
     private final UserRepository repository;
     private final UserResponseMapper userResponse;
 
@@ -39,6 +42,18 @@ public class UserService {
     }
 
     public UserResponse save(UserRequest request) {
+        checkUsernameExists(request);
         return userResponse.toUserResponse(repository.save(UserRequest.toEntity(request)));
     }
+
+    public void checkUsernameExists(UserRequest request) {
+        repository.findByUsername(request.getUsername())
+                .ifPresentOrElse(user -> {
+                    throw new UsernameAlreadyExistsException();
+                }, () -> logger.info("username não existe, liberado para utilização"));
+    }
+
+
+
+
 }
