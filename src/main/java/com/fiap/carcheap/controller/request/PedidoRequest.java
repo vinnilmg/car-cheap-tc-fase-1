@@ -11,5 +11,6 @@ public class PedidoRequest {
     private String tipoPagamento;
     private String vendedorId;
     private String carroId;
+    private String clienteId;
 
 }
