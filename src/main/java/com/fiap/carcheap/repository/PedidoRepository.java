@@ -9,5 +9,5 @@ import java.util.UUID;
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     Optional<Pedido> findById(UUID id);
 
-    boolean existsByCarroId(Long id);
+    boolean existsByCarroId(UUID id);
 }

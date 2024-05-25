@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.UUID;
 
 import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.ECONOMICO;
 import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.PREMIUM;
@@ -22,8 +23,8 @@ public class CarroService {
         return carros;
     }
 
-    public Optional<Carro> findById(Long id) {
-        var carro = repo.findById(id);
+    public Optional<Carro> findById(String id) {
+        var carro = repo.findById(UUID.fromString(id));
         return carro;
     }
 
@@ -33,8 +34,8 @@ public class CarroService {
         return carro;
     }
 
-    public Carro update(Long id, Carro carro) {
-        Carro buscaCarro = repo.getReferenceById(id);
+    public Carro update(String id, Carro carro) {
+        Carro buscaCarro = repo.getReferenceById(UUID.fromString(id));
         buscaCarro.setAnofab(carro.getAnofab());
         buscaCarro.setCor(carro.getCor());
         buscaCarro.setAnomodelo(carro.getAnomodelo());
@@ -54,7 +55,7 @@ public class CarroService {
         return buscaCarro;
     }
 
-    public void delete(Long id) {
-        repo.deleteById(id);
+    public void delete(String id) {
+        repo.deleteById(UUID.fromString(id));
     }
 }
