@@ -3,10 +3,7 @@ package com.fiap.carcheap.service.impl;
 import com.fiap.carcheap.controller.mapper.PedidoResponseMapper;
 import com.fiap.carcheap.controller.request.PedidoRequest;
 import com.fiap.carcheap.controller.response.PedidoResponse;
-import com.fiap.carcheap.exception.CarroNotFoundException;
-import com.fiap.carcheap.exception.ClienteNotFoundException;
-import com.fiap.carcheap.exception.PedidoNotFoundException;
-import com.fiap.carcheap.exception.UserNotFoundException;
+import com.fiap.carcheap.exception.*;
 import com.fiap.carcheap.repository.PedidoRepository;
 import com.fiap.carcheap.repository.entity.Pedido;
 import com.fiap.carcheap.repository.entity.enums.ComissaoEnum;
@@ -22,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -48,14 +46,14 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public PedidoResponse buscaPedido(final Long id) {
+    public PedidoResponse buscaPedido(final String id) {
         return getById(id)
                 .map(pedidoResponseMapper::toPedidoResponse)
                 .orElseThrow(PedidoNotFoundException::new);
     }
 
-    public Optional<Pedido> getById(Long id) {
-        return repository.findById(id);
+    public Optional<Pedido> getById(String id) {
+        return repository.findById(UUID.fromString(id));
     }
 
     @Override
@@ -63,6 +61,11 @@ public class PedidoServiceImpl implements PedidoService {
         final var carro = carroService.findById(request.getCarroId());
         if (carro.isEmpty()) {
             throw new CarroNotFoundException();
+        }
+
+        final var carroComVendaIniciada = repository.existsByCarroId(request.getCarroId());
+        if (carroComVendaIniciada) {
+            throw new CarroJaEstaEmProcessoDeVendaException();
         }
 
         final var vendedor = userService.getById(request.getVendedorId());
@@ -89,7 +92,7 @@ public class PedidoServiceImpl implements PedidoService {
 
 
     @Override
-    public PedidoResponse pagaPedido(final Long id) {
+    public PedidoResponse pagaPedido(final String id) {
         return this.getById(id)
                 .map(pedido -> {
                     pedido.setStatusPedido(StatusPedidoEnum.PAGO);

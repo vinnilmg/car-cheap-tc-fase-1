@@ -1,7 +1,5 @@
-insert into carro (
-id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas,
-equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao
-) values (1, 'teste', 'teste', 'teste', 2008, 2009, 136, 'teste', 4, 'teste', 'teste', 60000, 50000, 'teste', 'teste', 'ECONOMICO');
+insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
+(1, 'teste', 'teste', 'teste', 2008, 2009, 136, 'teste', 4, 'teste', 'teste', 60000, 50000, 'teste', 'teste', 'ECONOMICO');
 
 INSERT INTO clientes (id, nome, cpf, email, rg) VALUES
 (1, 'Ana Silva', '12345678901', 'ana.silva@example.com', '123456789'),
@@ -15,5 +13,5 @@ INSERT INTO clientes (id, nome, cpf, email, rg) VALUES
 (9, 'Igor Costa', '90123456789', 'igor.costa@example.com', '901234567'),
 (10, 'Juliana Rodrigues', '01234567890', 'juliana.rodrigues@example.com', '012345678');
 
-INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,perfil) VALUES (1,'xxx','xxx','JALINDO','SANTOS','MASTER');
-INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,perfil) VALUES (2,'xxxx','xxxx','ROMILDO','SILVIO','VENDEDOR');
+INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES (1,'user1','pass1','JALINDO','SANTOS','MASTER');
+INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES (2,'user2','pass2','ROMILDO','SILVIO','VENDEDOR');

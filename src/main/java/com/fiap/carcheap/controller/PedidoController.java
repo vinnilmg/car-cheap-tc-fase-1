@@ -29,7 +29,7 @@ public class PedidoController {
     @GetMapping("/{id}")
     public ResponseEntity<PedidoResponse> buscaPedido(
             @RequestHeader final String perfil,
-            @PathVariable final Long id
+            @PathVariable final String id
     ) {
         if (!UserPerfis.isVendedor(perfil)) throw new PerfilInvalidoException();
         return ResponseEntity.ok(service.buscaPedido(id));
@@ -47,7 +47,7 @@ public class PedidoController {
 
     @PostMapping("/{id}")
     public ResponseEntity<PedidoResponse> pagaPedidoVenda(
-            @PathVariable final Long id
+            @PathVariable final String id
     ) {
         return ResponseEntity.ok(service.pagaPedido(id));
     }

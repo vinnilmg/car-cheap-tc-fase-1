@@ -8,9 +8,9 @@ import java.util.List;
 public interface PedidoService {
     List<PedidoResponse> buscaPedidos();
 
-    PedidoResponse buscaPedido(Long id);
+    PedidoResponse buscaPedido(String id);
 
     PedidoResponse criaPedido(PedidoRequest request);
 
-    PedidoResponse pagaPedido(Long id);
+    PedidoResponse pagaPedido(String id);
 }

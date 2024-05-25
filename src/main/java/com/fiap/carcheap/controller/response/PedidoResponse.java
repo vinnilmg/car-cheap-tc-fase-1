@@ -7,11 +7,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class PedidoResponse {
-    private Long id;
+    private UUID id;
     private UserResponse vendedor;
     private Carro carro;
     private ClienteResponse cliente;

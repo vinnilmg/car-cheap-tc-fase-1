@@ -1,7 +1,6 @@
 package com.fiap.carcheap.config;
 
-import com.fiap.carcheap.exception.ApiError;
-import com.fiap.carcheap.exception.PedidoNotFoundException;
+import com.fiap.carcheap.exception.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +12,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @Slf4j
 @ControllerAdvice
 public class CarCheapExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler(PedidoNotFoundException.class)
-    public ResponseEntity<ApiError> handlePedidoNotFoundException(
-            final PedidoNotFoundException exception, final WebRequest request
+
+    @ExceptionHandler({
+            PedidoNotFoundException.class,
+            CarroNotFoundException.class,
+            ClienteNotFoundException.class,
+            UserNotFoundException.class
+    })
+    public ResponseEntity<ApiError> handleNotFoundException(
+            final Exception exception, final WebRequest request
     ) {
         final var errorCode = HttpStatus.NOT_FOUND;
         return ResponseEntity
@@ -23,8 +28,22 @@ public class CarCheapExceptionHandler extends ResponseEntityExceptionHandler {
                 .body(new ApiError(errorCode, exception.getMessage()));
     }
 
+    @ExceptionHandler({
+            PerfilInvalidoException.class,
+            UsernameAlreadyExistsException.class,
+            CarroJaEstaEmProcessoDeVendaException.class
+    })
+    public ResponseEntity<ApiError> handleBusinessRulesException(
+            final Exception exception, final WebRequest request
+    ) {
+        final var errorCode = HttpStatus.BAD_REQUEST;
+        return ResponseEntity
+                .status(errorCode)
+                .body(new ApiError(errorCode, exception.getMessage()));
+    }
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiError> handlerException(
+    public ResponseEntity<ApiError> handleDefaultException(
             final Exception e, final WebRequest request
     ) {
         log.error("Erro interno: {}", e.getMessage(), e);

@@ -38,7 +38,7 @@ public class UserService {
     }
 
     public Optional<User> getById(Long id) {
-        return  repository.findById(id);
+        return repository.findById(id);
     }
 
     public UserResponse save(UserRequest request) {
@@ -49,11 +49,8 @@ public class UserService {
     public void checkUsernameExists(UserRequest request) {
         repository.findByUsername(request.getUsername())
                 .ifPresentOrElse(user -> {
-                    throw new UsernameAlreadyExistsException();
-                }, () -> logger.info("username não existe, liberado para utilização"));
+                            throw new UsernameAlreadyExistsException();
+                        },
+                        () -> logger.info("username não existe, liberado para utilização"));
     }
-
-
-
-
 }

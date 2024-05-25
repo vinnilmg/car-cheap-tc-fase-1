@@ -11,7 +11,7 @@ spring:
       enabled: true
   jpa:
     defer-datasource-initialization: true
-    show-sql: true
+    show-sql: false
   sql:
 
     init:
