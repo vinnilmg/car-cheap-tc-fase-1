@@ -59,4 +59,18 @@ public class PedidoController {
     ) {
         return ResponseEntity.ok(service.trocaStatusPedido(id, StatusPedidoEnum.CONTRATO_EMITIDO));
     }
+
+    @PostMapping("/aguardando-pagamento/{id}")
+    public ResponseEntity<PedidoResponse> contratoAssinado(
+            @PathVariable final String id
+    ) {
+        return ResponseEntity.ok(service.trocaStatusPedido(id, StatusPedidoEnum.AGUARDANDO_PAGAMENTO));
+    }
+
+    @PostMapping("/retira-carro/{id}")
+    public ResponseEntity<PedidoResponse> retiraCarro(
+            @PathVariable final String id
+    ) {
+        return ResponseEntity.ok(service.trocaStatusPedido(id, StatusPedidoEnum.FINALIZADO));
+    }
 }
