@@ -1,11 +1,11 @@
-package com.fiap.carcheap.dto;
+package com.fiap.carcheap.controller.response;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class ClienteDto {
+public class ClienteResponse {
 
     private Long id;
     private String nome;

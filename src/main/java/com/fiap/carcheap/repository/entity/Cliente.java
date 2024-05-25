@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Entity(name = "clientes")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -25,12 +25,12 @@ public class Cliente {
     @NotBlank
     private String nome;
     @NotBlank
-    @Size(min = 11, max = 11)
+//    @Size(min = 11, max = 11)
     private String cpf;
     @NotBlank
     @Email
     private String email;
-    @Size(min = 10, max = 10)
+//    @Size(min = 10, max = 10)
     private String rg;
 
 }
