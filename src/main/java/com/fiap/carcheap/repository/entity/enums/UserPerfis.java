@@ -1,4 +1,4 @@
-package com.fiap.carcheap.enums;
+package com.fiap.carcheap.repository.entity.enums;
 
 public enum UserPerfis {
     MASTER,

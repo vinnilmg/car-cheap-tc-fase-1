@@ -1,6 +1,7 @@
 package com.fiap.carcheap.repository.entity;
 
-import com.fiap.carcheap.enums.UserPerfis;
+
+import com.fiap.carcheap.repository.entity.enums.UserPerfis;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
