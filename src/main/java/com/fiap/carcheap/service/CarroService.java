@@ -18,13 +18,11 @@ import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.P
 @Slf4j
 @Service
 public class CarroService {
-
     @Autowired
     private CarroRepository repo;
 
     public Collection<Carro> findAll() {
-        var carros = repo.findAll();
-        return carros;
+        return repo.findAll();
     }
 
     public Optional<Carro> findById(String id) {
