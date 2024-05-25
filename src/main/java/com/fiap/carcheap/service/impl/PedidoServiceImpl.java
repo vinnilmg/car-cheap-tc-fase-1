@@ -90,12 +90,10 @@ public class PedidoServiceImpl implements PedidoService {
         return pedidoResponseMapper.toPedidoResponse(pedido);
     }
 
-
-    @Override
-    public PedidoResponse pagaPedido(final String id) {
+    public PedidoResponse trocaStatusPedido(final String id, StatusPedidoEnum status) {
         return this.getById(id)
                 .map(pedido -> {
-                    pedido.setStatusPedido(StatusPedidoEnum.PAGO);
+                    pedido.setStatusPedido(status);
                     repository.save(pedido);
                     return pedidoResponseMapper.toPedidoResponse(pedido);
                 })

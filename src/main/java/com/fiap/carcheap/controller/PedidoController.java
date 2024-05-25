@@ -2,8 +2,9 @@ package com.fiap.carcheap.controller;
 
 import com.fiap.carcheap.controller.request.PedidoRequest;
 import com.fiap.carcheap.controller.response.PedidoResponse;
-import com.fiap.carcheap.repository.entity.enums.UserPerfis;
 import com.fiap.carcheap.exception.PerfilInvalidoException;
+import com.fiap.carcheap.repository.entity.enums.StatusPedidoEnum;
+import com.fiap.carcheap.repository.entity.enums.UserPerfis;
 import com.fiap.carcheap.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,10 +46,17 @@ public class PedidoController {
                 .body(service.criaPedido(request));
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/paga/{id}")
     public ResponseEntity<PedidoResponse> pagaPedidoVenda(
             @PathVariable final String id
     ) {
-        return ResponseEntity.ok(service.pagaPedido(id));
+        return ResponseEntity.ok(service.trocaStatusPedido(id, StatusPedidoEnum.PAGO));
+    }
+
+    @PostMapping("/contrato/{id}")
+    public ResponseEntity<PedidoResponse> geraContratoVenda(
+            @PathVariable final String id
+    ) {
+        return ResponseEntity.ok(service.trocaStatusPedido(id, StatusPedidoEnum.CONTRATO_EMITIDO));
     }
 }
