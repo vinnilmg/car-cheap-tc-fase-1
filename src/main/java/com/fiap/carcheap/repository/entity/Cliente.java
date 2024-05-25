@@ -1,9 +1,6 @@
 package com.fiap.carcheap.repository.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -25,12 +22,15 @@ public class Cliente {
     @NotBlank
     private String nome;
     @NotBlank
-//    @Size(min = 11, max = 11)
+    @Size(min = 10, max = 11)
+    @Column(unique = true)
     private String cpf;
     @NotBlank
     @Email
+    @Column(unique = true)
     private String email;
-//    @Size(min = 10, max = 10)
+    @Size(min = 9, max = 10)
+    @Column(unique = true)
     private String rg;
 
 }
