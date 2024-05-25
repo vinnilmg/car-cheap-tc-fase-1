@@ -15,22 +15,24 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cliente {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank
     private String nome;
+
     @NotBlank
     @Size(min = 10, max = 11)
     @Column(unique = true)
     private String cpf;
+
     @NotBlank
     @Email
     @Column(unique = true)
     private String email;
+
     @Size(min = 9, max = 10)
     @Column(unique = true)
     private String rg;
-
 }

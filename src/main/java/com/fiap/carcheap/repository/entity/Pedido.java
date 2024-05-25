@@ -33,4 +33,8 @@ public class Pedido {
 
     @Enumerated(EnumType.STRING)
     private StatusPedidoEnum statusPedido;
+
+    public static BigDecimal calculaComissao(Double porcentagemComissao, Long valorVenda) {
+        return BigDecimal.valueOf((porcentagemComissao * valorVenda) / 100);
+    }
 }
