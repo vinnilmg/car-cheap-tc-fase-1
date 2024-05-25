@@ -1,7 +1,10 @@
 package com.fiap.carcheap.service;
 
+import com.fiap.carcheap.controller.request.CarroUpdateRequest;
+import com.fiap.carcheap.exception.CarroNotFoundException;
 import com.fiap.carcheap.repository.CarroRepository;
 import com.fiap.carcheap.repository.entity.Carro;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,7 @@ import java.util.UUID;
 import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.ECONOMICO;
 import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.PREMIUM;
 
+@Slf4j
 @Service
 public class CarroService {
 
@@ -34,25 +38,14 @@ public class CarroService {
         return carro;
     }
 
-    public Carro update(String id, Carro carro) {
-        Carro buscaCarro = repo.getReferenceById(UUID.fromString(id));
-        buscaCarro.setAnofab(carro.getAnofab());
-        buscaCarro.setCor(carro.getCor());
-        buscaCarro.setAnomodelo(carro.getAnomodelo());
-        buscaCarro.setChassi(carro.getChassi());
-        buscaCarro.setEquipamentos(carro.getEquipamentos());
-        buscaCarro.setOrigem(carro.getOrigem());
-        buscaCarro.setPlaca(carro.getPlaca());
-        buscaCarro.setRenavan(carro.getRenavan());
-        buscaCarro.setPotencia(carro.getPotencia());
-        buscaCarro.setStatus(carro.getStatus());
-        buscaCarro.setNr_portas(carro.getNr_portas());
-        buscaCarro.setTp_carroceria(carro.getTp_carroceria());
-        buscaCarro.setVr_venda(carro.getVr_venda());
-        buscaCarro.setVr_original(carro.getVr_original());
+    public Carro update(String id, CarroUpdateRequest request) {
+        var carroOp = repo.findById(UUID.fromString(id));
 
-        buscaCarro = repo.save(buscaCarro);
-        return buscaCarro;
+        if (carroOp.isEmpty()) throw new CarroNotFoundException();
+
+        var carro = carroOp.get();
+        carro.setVr_venda(request.getValorVenda());
+        return repo.save(carro);
     }
 
     public void delete(String id) {
