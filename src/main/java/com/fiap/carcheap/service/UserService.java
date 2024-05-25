@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 @Service
@@ -31,14 +32,14 @@ public class UserService {
                 .toList();
     }
 
-    public UserResponse findById(Long id) {
+    public UserResponse findById(String id) {
         return getById(id)
                 .map(userResponse::toUserResponse)
                 .orElseThrow(UserNotFoundException::new);
     }
 
-    public Optional<User> getById(Long id) {
-        return repository.findById(id);
+    public Optional<User> getById(String id) {
+        return  repository.findById(UUID.fromString(id));
     }
 
     public UserResponse save(UserRequest request) {
