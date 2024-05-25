@@ -9,7 +9,7 @@ insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor,
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
 ('9b6d13a2-0838-42bb-b943-4e5a7ed0614d', 'ggxa25', 'xxxxxxxx4', 'teste', 2022, 2022, 150, 'branco', 4, 'ar, direção, vidro', 'suv', 160000, 160000, 'teste', 'teste', 'PREMIUM');
 
-INSERT INTO pessoa (id, nome, cpf, email, rg) VALUES
+INSERT INTO clientes (id, nome, cpf, email, rg) VALUES
 ('90cfa24e-4be0-44dc-8855-76bbcf4be910', 'João da Silva', '12345678900', 'joao.silva@example.com', 'MG12345678'),
 ('1f4a7c5e-b2b7-41d5-b89e-99401cb574b5', 'Maria Oliveira', '98765432100', 'maria.oliveira@example.com', 'SP87654321'),
 ('a1d1b8c4-8b73-4aaf-8349-d2d9a5a03e9d', 'Carlos Pereira', '45678912300', 'carlos.pereira@example.com', 'RJ45678912'),

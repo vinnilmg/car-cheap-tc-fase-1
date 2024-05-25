@@ -73,7 +73,7 @@ public class PedidoServiceImpl implements PedidoService {
             throw new UserNotFoundException();
         }
 
-        final var cliente = clienteService.getById(request.getClienteId());
+        final var cliente = clienteService.getById(UUID.fromString(request.getClienteId()));
         if (cliente.isEmpty()) {
             throw new ClienteNotFoundException();
         }
