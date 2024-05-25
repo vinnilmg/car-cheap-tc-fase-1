@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/clientes")
@@ -28,7 +29,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteResponse> obterPorId(@PathVariable @NotNull Long id) {
+    public ResponseEntity<ClienteResponse> obterPorId(@PathVariable @NotNull String id) {
         return ResponseEntity.ok(clienteService.obterPorId(id));
     }
 
@@ -39,13 +40,13 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ClienteDto> deletarCliente(@PathVariable Long id) {
+    public ResponseEntity<ClienteDto> deletarCliente(@PathVariable String id) {
         clienteService.deleltarCliente(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClienteDto> atualizarCliente(@PathVariable Long id, @RequestBody ClienteDto clienteDto) {
+    public ResponseEntity<ClienteDto> atualizarCliente(@PathVariable UUID id, @RequestBody ClienteDto clienteDto) {
         ClienteDto clienteAtualizado = clienteService.atualizarCliente(id, clienteDto);
         return ResponseEntity.ok(clienteAtualizado);
     }
