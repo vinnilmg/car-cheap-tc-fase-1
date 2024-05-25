@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/carros")
@@ -22,7 +23,7 @@ public class CarroController {
         return ResponseEntity.ok(carros);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Carro>> findById(@PathVariable Long id) {
+    public ResponseEntity<Optional<Carro>> findById(@PathVariable String id) {
         var carro = service.findById(id);
         return ResponseEntity.ok(carro);
     }
@@ -33,12 +34,12 @@ public class CarroController {
         return ResponseEntity.status(HttpStatusCode.valueOf(201)).body(carro);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Carro> update(@PathVariable Long id, @RequestBody Carro carro){
+    public ResponseEntity<Carro> update(@PathVariable String id, @RequestBody Carro carro){
         carro = service.update(id, carro);
         return ResponseEntity.ok(carro);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
