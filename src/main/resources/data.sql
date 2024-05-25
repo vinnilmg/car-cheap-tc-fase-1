@@ -9,7 +9,6 @@ insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor,
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
 ('9b6d13a2-0838-42bb-b943-4e5a7ed0614d', 'ggxa25', 'xxxxxxxx4', 'teste', 2022, 2022, 150, 'branco', 4, 'ar, direção, vidro', 'suv', 160000, 160000, 'teste', 'teste', 'PREMIUM');
 
-
 INSERT INTO pessoa (id, nome, cpf, email, rg) VALUES
 ('90cfa24e-4be0-44dc-8855-76bbcf4be910', 'João da Silva', '12345678900', 'joao.silva@example.com', 'MG12345678'),
 ('1f4a7c5e-b2b7-41d5-b89e-99401cb574b5', 'Maria Oliveira', '98765432100', 'maria.oliveira@example.com', 'SP87654321'),
@@ -17,5 +16,5 @@ INSERT INTO pessoa (id, nome, cpf, email, rg) VALUES
 ('ed1b05ec-36b4-4b14-a635-3b526e5e6c3b', 'Ana Costa', '78912345600', 'ana.costa@example.com', 'RS78912345'),
 ('5a574f7d-f4b7-4a6b-9b0b-8673e4df8e6f', 'Lucas Souza', '32165498700', 'lucas.souza@example.com', 'PR32165498');
 
-INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES (1,'user1','pass1','JALINDO','SANTOS','MASTER');
-INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES (2,'user2','pass2','ROMILDO','SILVIO','VENDEDOR');
+INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES ('30e7964f-07cc-4f7c-9a96-b837f92884e4','user1','pass1','JALINDO','SANTOS','MASTER');
+INSERT INTO USUARIO (ID,USERNAME,PASSWORD,NOME,SOBRENOME,PERFIL) VALUES ('62800332-989d-4f93-86d9-63a5b0619bc6','user2','pass2','ROMILDO','SILVIO','VENDEDOR');

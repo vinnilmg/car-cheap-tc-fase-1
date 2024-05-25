@@ -4,10 +4,12 @@ import com.fiap.carcheap.repository.entity.enums.UserPerfis;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public class UserResponse {
-    private Long id;
+    private UUID id;
     private String username;
     private String nome;
     private String sobrenome;
