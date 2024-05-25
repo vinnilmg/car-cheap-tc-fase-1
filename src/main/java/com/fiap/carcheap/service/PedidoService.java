@@ -11,4 +11,6 @@ public interface PedidoService {
     PedidoResponse buscaPedido(Long id);
 
     PedidoResponse criaPedido(PedidoRequest request);
+
+    PedidoResponse pagaPedido(Long id);
 }

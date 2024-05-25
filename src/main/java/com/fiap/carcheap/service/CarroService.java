@@ -8,21 +8,27 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.Optional;
 
+import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.ECONOMICO;
+import static com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum.PREMIUM;
+
 @Service
 public class CarroService {
 
     @Autowired
     private CarroRepository repo;
+
     public Collection<Carro> findAll() {
         var carros = repo.findAll();
         return carros;
     }
-    public Optional<Carro> findById(Long id){
+
+    public Optional<Carro> findById(Long id) {
         var carro = repo.findById(id);
         return carro;
     }
 
-    public Carro save(Carro carro){
+    public Carro save(Carro carro) {
+        carro.setClassificacao((carro.getVr_venda() > 100000) ? PREMIUM : ECONOMICO);
         carro = repo.save(carro);
         return carro;
     }

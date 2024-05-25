@@ -1,6 +1,7 @@
 package com.fiap.carcheap.controller.response;
 
 import com.fiap.carcheap.repository.entity.Carro;
+import com.fiap.carcheap.repository.entity.User;
 import com.fiap.carcheap.repository.entity.enums.StatusPedidoEnum;
 import com.fiap.carcheap.repository.entity.enums.TipoPagamentoEnum;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 @Setter
 public class PedidoResponse {
     private Long id;
-    private String vendedor;
+    private User vendedor;
     private Carro carro;
     //private String cliente;
     private BigDecimal valorComissao;
