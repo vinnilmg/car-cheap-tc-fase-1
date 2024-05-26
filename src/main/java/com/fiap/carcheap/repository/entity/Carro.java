@@ -1,6 +1,7 @@
 package com.fiap.carcheap.repository.entity;
 
 import com.fiap.carcheap.repository.entity.enums.ClassificacaoCarroEnum;
+import com.fiap.carcheap.repository.entity.enums.StatusCarroEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -42,7 +43,8 @@ public class Carro {
     @NotNull
     private Long vr_venda;
     private String origem;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private StatusCarroEnum status;
     @Enumerated(EnumType.STRING)
     private ClassificacaoCarroEnum classificacao;
 }

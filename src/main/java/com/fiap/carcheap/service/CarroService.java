@@ -4,6 +4,7 @@ import com.fiap.carcheap.controller.request.CarroUpdateRequest;
 import com.fiap.carcheap.exception.CarroNotFoundException;
 import com.fiap.carcheap.repository.CarroRepository;
 import com.fiap.carcheap.repository.entity.Carro;
+import com.fiap.carcheap.repository.entity.enums.StatusCarroEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class CarroService {
 
     public Carro save(Carro carro) {
         carro.setClassificacao((carro.getVr_venda() > 100000) ? PREMIUM : ECONOMICO);
+        carro.setStatus(StatusCarroEnum.DISPONIVEL);
         carro = repo.save(carro);
         return carro;
     }
@@ -50,6 +52,8 @@ public class CarroService {
     }
 
     public void delete(String id) {
-        repo.deleteById(UUID.fromString(id));
+        var carro = findById(id).get();
+       carro.setStatus(StatusCarroEnum.INDISPONIVEL);
+       repo.save(carro);
     }
 }

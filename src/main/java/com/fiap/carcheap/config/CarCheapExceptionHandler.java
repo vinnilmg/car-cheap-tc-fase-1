@@ -31,7 +31,8 @@ public class CarCheapExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({
             PerfilInvalidoException.class,
             UsernameAlreadyExistsException.class,
-            CarroJaEstaEmProcessoDeVendaException.class
+            CarroJaEstaEmProcessoDeVendaException.class,
+            ClienteJaEstaEmProcessoDeVendaException.class
     })
     public ResponseEntity<ApiError> handleBusinessRulesException(
             final Exception exception, final WebRequest request

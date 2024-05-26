@@ -3,8 +3,10 @@ package com.fiap.carcheap.service;
 import com.fiap.carcheap.controller.mapper.ClienteResponseMapper;
 import com.fiap.carcheap.controller.response.ClienteResponse;
 import com.fiap.carcheap.dto.ClienteDto;
+import com.fiap.carcheap.exception.ClienteJaEstaEmProcessoDeVendaException;
 import com.fiap.carcheap.exception.ClienteNotFoundException;
 import com.fiap.carcheap.repository.ClienteRepository;
+import com.fiap.carcheap.repository.PedidoRepository;
 import com.fiap.carcheap.repository.entity.Cliente;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class ClienteService {
 
     @Autowired
     private ClienteResponseMapper clienteResponseMapper;
+
+    @Autowired
+    private PedidoRepository pedidoRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -49,6 +54,10 @@ public class ClienteService {
     }
 
     public void deleltarCliente(String id) {
+        if (pedidoRepository.existsByClienteId(UUID.fromString(id))) {
+            throw new ClienteJaEstaEmProcessoDeVendaException();
+        }
+
         clienteRepository.deleteById(UUID.fromString(id));
     }
 

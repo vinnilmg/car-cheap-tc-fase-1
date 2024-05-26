@@ -1,13 +1,13 @@
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
-('a472f22e-31c1-41db-b8d4-64a86d8a9394', 'teste', 'teste', 'teste', 2008, 2009, 136, 'branco', 4, 'ar, direção, vidro', 'sedan', 60000, 50000, 'teste', 'teste', 'ECONOMICO');
+('a472f22e-31c1-41db-b8d4-64a86d8a9394', 'teste', 'teste', 'teste', 2008, 2009, 136, 'branco', 4, 'ar, direção, vidro', 'sedan', 60000, 50000, 'teste', 'DISPONIVEL', 'ECONOMICO');
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
-('dff0c727-f78f-430e-b3e1-9c184975166c', 'ggxa22', 'xxxxxxxxx', 'teste', 2008, 2009, 136, 'preto', 4, 'ar, direção, vidro', 'sedan', 120000, 150000, 'teste', 'teste', 'PREMIUM');
+('dff0c727-f78f-430e-b3e1-9c184975166c', 'ggxa22', 'xxxxxxxxx', 'teste', 2008, 2009, 136, 'preto', 4, 'ar, direção, vidro', 'sedan', 120000, 150000, 'teste', 'DISPONIVEL', 'PREMIUM');
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
-('6f73dfb0-55c5-46ce-a104-3b000c35ae38', 'ggxa23', 'xxxxxxxx2', 'teste', 2018, 2009, 250, 'prata', 4, 'ar, direção, trava', 'suv', 75000, 85000, 'teste', 'teste', 'ECONOMICO');
+('6f73dfb0-55c5-46ce-a104-3b000c35ae38', 'ggxa23', 'xxxxxxxx2', 'teste', 2018, 2009, 250, 'prata', 4, 'ar, direção, trava', 'suv', 75000, 85000, 'teste', 'DISPONIVEL', 'ECONOMICO');
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
-('bb14a29c-1de9-4431-8014-48878ad86768', 'ggxa24', 'xxxxxxxx3', 'teste', 2021, 2021, 75, 'azul', 2, 'ar, direção, vidro', 'hatch', 250000, 250000, 'teste', 'teste', 'PREMIUM');
+('bb14a29c-1de9-4431-8014-48878ad86768', 'ggxa24', 'xxxxxxxx3', 'teste', 2021, 2021, 75, 'azul', 2, 'ar, direção, vidro', 'hatch', 250000, 250000, 'teste', 'DISPONIVEL', 'PREMIUM');
 insert into carro (id, placa, chassi, renavan, anofab, anomodelo, potencia, cor, nr_portas, equipamentos, tp_carroceria, vr_original, vr_venda, origem, status, classificacao) values
-('9b6d13a2-0838-42bb-b943-4e5a7ed0614d', 'ggxa25', 'xxxxxxxx4', 'teste', 2022, 2022, 150, 'branco', 4, 'ar, direção, vidro', 'suv', 160000, 160000, 'teste', 'teste', 'PREMIUM');
+('9b6d13a2-0838-42bb-b943-4e5a7ed0614d', 'ggxa25', 'xxxxxxxx4', 'teste', 2022, 2022, 150, 'branco', 4, 'ar, direção, vidro', 'suv', 160000, 160000, 'teste', 'DISPONIVEL', 'PREMIUM');
 
 INSERT INTO clientes (id, nome, cpf, email, rg) VALUES
 ('90cfa24e-4be0-44dc-8855-76bbcf4be910', 'João da Silva', '12345678900', 'joao.silva@example.com', 'MG12345678'),
