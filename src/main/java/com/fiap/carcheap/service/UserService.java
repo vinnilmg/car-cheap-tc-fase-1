@@ -46,12 +46,22 @@ public class UserService {
         checkUsernameExists(request);
         return userResponse.toUserResponse(repository.save(UserRequest.toEntity(request)));
     }
+    public UserResponse update(String id ,UserRequest request) {
+        User userBanco = repository.findById(UUID.fromString(id))
+                .orElseThrow(() -> new UserNotFoundException());
+        checkUsernameExists(request);
+        userBanco.setNome(request.getNome());
+        userBanco.setPassword(request.getPassword());
+        userBanco.setPerfil(request.getPerfil());
+        userBanco.setSobrenome(request.getSobrenome());
+       return userResponse.toUserResponse(repository.save(userBanco));
+    }
 
     public void checkUsernameExists(UserRequest request) {
         repository.findByUsername(request.getUsername())
                 .ifPresentOrElse(user -> {
                             throw new UsernameAlreadyExistsException();
                         },
-                        () -> logger.info("username não existe, liberado para utilização"));
+                        () -> logger.info("Username não repetido."));
     }
 }
