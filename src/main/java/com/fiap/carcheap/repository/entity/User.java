@@ -18,14 +18,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @Column(unique = true, nullable = false)
-    @NotBlank
     private String username;
-    @NotBlank
     @Column(nullable = false)
     private String password;
-    @NotBlank
     private String nome;
-    @NotBlank
     private String sobrenome;
     @Enumerated(EnumType.STRING)
     private UserPerfis perfil;
