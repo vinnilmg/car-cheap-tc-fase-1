@@ -29,7 +29,7 @@ O software Car Cheap é responsável por controlar a administração de uma loja
 - Maven 3.9.6
 
 ### Passo a passo para executar a aplicação localmente
-Executar o comando no CMD: mvn spring-boot:run
+Executar o comando no CMD na pasta do projeto: mvn spring-boot:run
 
 ### Collection
 Arquivo na raiz do projeto: car-cheap-tc-1.postman_collection.json
