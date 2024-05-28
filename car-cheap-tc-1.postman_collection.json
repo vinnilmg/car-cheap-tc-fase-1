@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "8d628d8f-91d1-4df6-af87-fb725440e037",
+		"name": "car-cheap-tc-1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7403997",
+		"_collection_link": "https://gold-station-588936.postman.co/workspace/FIAP--Grupo-5~ae9d38dd-1094-43ca-9e2d-a749c7a7997e/collection/7403997-8d628d8f-91d1-4df6-af87-fb725440e037?action=share&source=collection_link&creator=7403997"
+	},
+	"item": [
+		{
+			"name": "pedido",
+			"item": [
+				{
+					"name": "find all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/pedidos/1aebd98f-a96f-4c28-b042-d5da03f23950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos",
+								"1aebd98f-a96f-4c28-b042-d5da03f23950"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cria pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoPagamento\": \"credito\",\r\n    \"vendedorId\": \"30e7964f-07cc-4f7c-9a96-b837f92884e4\",\r\n    \"carroId\": \"9b6d13a2-0838-42bb-b943-4e5a7ed0614d\",\r\n    \"clienteId\": \"90cfa24e-4be0-44dc-8855-76bbcf4be910\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gera contrato",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/pedidos/contrato/1aebd98f-a96f-4c28-b042-d5da03f23950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos",
+								"contrato",
+								"1aebd98f-a96f-4c28-b042-d5da03f23950"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "aguardando pagamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/pedidos/aguardando-pagamento/1aebd98f-a96f-4c28-b042-d5da03f23950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos",
+								"aguardando-pagamento",
+								"1aebd98f-a96f-4c28-b042-d5da03f23950"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paga pedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/pedidos/paga/1aebd98f-a96f-4c28-b042-d5da03f23950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos",
+								"paga",
+								"1aebd98f-a96f-4c28-b042-d5da03f23950"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retira carro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "perfil",
+								"value": "vendedor"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/pedidos/retira-carro/1aebd98f-a96f-4c28-b042-d5da03f23950",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"pedidos",
+								"retira-carro",
+								"1aebd98f-a96f-4c28-b042-d5da03f23950"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carro",
+			"item": [
+				{
+					"name": "find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/carros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"carros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/carros/a472f22e-31c1-41db-b8d4-64a86d8a9394",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"carros",
+								"a472f22e-31c1-41db-b8d4-64a86d8a9394"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placa\": \"DUF1101\",\r\n    \"chassi\": \"12345abc\",\r\n    \"renavan\": \"12213124\",\r\n    \"anofab\": 2008,\r\n    \"anomodelo\": 2009,\r\n    \"potencia\": 136,\r\n    \"cor\": \"preto\",\r\n    \"nr_portas\": 4,\r\n    \"equipamentos\": \"radio\",\r\n    \"tp_carroceria\": \"hatch\",\r\n    \"vr_original\": 26000,\r\n    \"vr_venda\": 30000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/carros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"carros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valorVenda\": 35000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/carros/a472f22e-31c1-41db-b8d4-64a86d8a9394",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"carros",
+								"a472f22e-31c1-41db-b8d4-64a86d8a9394"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/carros/a472f22e-31c1-41db-b8d4-64a86d8a9394",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"carros",
+								"a472f22e-31c1-41db-b8d4-64a86d8a9394"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/users/62800332-989d-4f93-86d9-63a5b0619bc6",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"users",
+								"62800332-989d-4f93-86d9-63a5b0619bc6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"12385764\",\r\n    \"password\":\"123\" ,\r\n    \"nome\":\"teste\" ,\r\n    \"sobrenome\":\"teste\" ,\r\n    \"perfil\":\"MASTER\" \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/users/cadastrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"users",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"1243\" ,\r\n    \"nome\":\"te4ste\" ,\r\n    \"sobrenome\":\"teste\" ,\r\n    \"perfil\":\"MASTER\" \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/users/62800332-989d-4f93-86d9-63a5b0619bc6",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"users",
+								"62800332-989d-4f93-86d9-63a5b0619bc6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "clientes",
+			"item": [
+				{
+					"name": "find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/clientes/90cfa24e-4be0-44dc-8855-76bbcf4be910",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"clientes",
+								"90cfa24e-4be0-44dc-8855-76bbcf4be910"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulanozinho2\",\r\n    \"cpf\": \"55555555555\",\r\n    \"email\": \"naosei@mail.com\",\r\n    \"rg\": \"789456123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"João da Silva\",\r\n    \"cpf\": \"12345678900\",\r\n    \"email\": \"joao.silva@example.com\",\r\n    \"rg\": \"MG12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/clientes/90cfa24e-4be0-44dc-8855-76bbcf4be910",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"clientes",
+								"90cfa24e-4be0-44dc-8855-76bbcf4be910"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulanozinho\",\r\n    \"cpf\": \"12345678901\",\r\n    \"email\": \"balbalbal@clba.com\",\r\n    \"rg\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/clientes/a1d1b8c4-8b73-4aaf-8349-d2d9a5a03e9d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"clientes",
+								"a1d1b8c4-8b73-4aaf-8349-d2d9a5a03e9d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

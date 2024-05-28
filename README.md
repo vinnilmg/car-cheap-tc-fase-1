@@ -23,3 +23,13 @@ O software Car Cheap é responsável por controlar a administração de uma loja
 - Geração do contrato da loja
 - Pedidos para pessoas jurídicas
 - Fluxo de vendas com financiamento
+
+### Requisitos para executar
+- Java 17
+- Maven 3.9.6
+
+### Passo a passo para executar a aplicação localmente
+Executar o comando no CMD: mvn spring-boot:run
+
+### Collection
+Arquivo na raiz do projeto: car-cheap-tc-1.postman_collection.json
